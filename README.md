@@ -3,7 +3,7 @@
 
 ## 使用
 ```bash
-npm i cdn-resource-loader
+npm i cdn-resource-loader -D
 ```
 
 ## 开发--权限
