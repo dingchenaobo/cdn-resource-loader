@@ -1,3 +1,5 @@
+require('@babel/polyfill');
+
 const sassResourcesLoader = require('sass-resources-loader');
 const loaderUtils = require('loader-utils');
 
