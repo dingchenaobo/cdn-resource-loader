@@ -1,5 +1,12 @@
 # cdn-resource-loader
-## 权限
+解决多个项目使用同一套预编译样式的问题
+
+## 使用
+```bash
+npm i cdn-resource-loader
+```
+
+## 开发--权限
 运行
 ```sh
 npm run dev/build/...
