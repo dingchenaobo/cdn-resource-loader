@@ -59,8 +59,8 @@ module.exports = {
           loader: 'cdn-resource-loader',
           options: {
             resources: [
-              './theme.less',
-              'https://raw.githubusercontent.com/dingchenaobo/test/master/theme2.less'
+              './theme-local.less',
+              'https://raw.githubusercontent.com/dingchenaobo/cdn-resource-loader/master/example/theme-cdn.less'
             ]
           }
         }
