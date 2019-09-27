@@ -4,4 +4,4 @@ module.exports = function replaceConfigResources(config, urls) {
     config.splice(index, 1, path);
   });
   return config;
-}
+};

@@ -3,11 +3,11 @@ const fs = require('fs');
 // deep clean dir
 function delDir(path) {
   let files = [];
-  if(fs.existsSync(path)){
+  if (fs.existsSync(path)) {
     files = fs.readdirSync(path);
-    files.forEach(file => {
-      let curPath = path + "/" + file;
-      if(fs.statSync(curPath).isDirectory()){
+    files.forEach((file) => {
+      const curPath = `${path}/${file}`;
+      if (fs.statSync(curPath).isDirectory()) {
         delDir(curPath);
       } else {
         fs.unlinkSync(curPath);
@@ -18,7 +18,9 @@ function delDir(path) {
 }
 
 function cleanResources(path) {
-  if (fs.existsSync(path)) delDir(path);
+  if (fs.existsSync(path)) {
+    delDir(path);
+  }
   fs.mkdirSync(path);
 }
 

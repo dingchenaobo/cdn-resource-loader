@@ -7,9 +7,10 @@ const cleanResources = require('./utils/cleanResources');
 const createResources = require('./utils/createResources');
 const replaceConfigResources = require('./utils/replaceConfigResources');
 
+// eslint-disable-next-line
 const urlRegExp = /^((ht|f)tps?):\/\/([\w\-]+(\.[\w\-]+)*\/)*[\w\-]+(\.[\w\-]+)*\/?(\?([\w\-\.,@?^=%&:\/~\+#]*)+)?/;
 const dirname = './dynamic-resource-styles';
-const isArray = Array.isArray;
+const { isArray } = Array;
 const globalResourcesUrls = [];
 
 
@@ -17,19 +18,21 @@ module.exports = function cdnResourceLoader(source) {
   const webpack = this;
 
   // enable cache
-  webpack.cacheable && webpack.cacheable();
+  if (webpack.cacheable) {
+    webpack.cacheable();
+  }
 
   return sassResourcesLoader.call(webpack, source);
-}
+};
 
-module.exports.pitch = function() {
+module.exports.pitch = function cdnResourceLoader() {
   const callback = this.async();
   let resourcesFromConfig = (loaderUtils.getOptions(this) || {}).resources;
   // networks urls
   const urlsFromresources = [];
 
   // "sass-resources-loader" options.resources need an array!
-  if (resourcesFromConfig === void 0) {
+  if (resourcesFromConfig === undefined) {
     throw new Error('"cdn-resources-loader" options.resources need an array!');
   }
 
@@ -56,7 +59,7 @@ module.exports.pitch = function() {
 
   createResources(urlsFromresources, dirname, (error) => {
     if (!error) {
-      console.log('success: resource download done!');
+      // console.log('success: resource download done!');
       replaceConfigResources(resourcesFromConfig, urlsFromresources);
       callback(null);
     } else {

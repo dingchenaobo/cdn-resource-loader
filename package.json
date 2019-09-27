@@ -4,10 +4,11 @@
   "description": "基于 sass-resources-loader，加载网络资源.",
   "main": "lib/loader.js",
   "scripts": {
-    "start": "npm run clean && npm run dev",
+    "start": "npm run lint && npm run clean && npm run dev",
     "dev": "scripts/dev",
     "build": "scripts/build",
-    "clean": "scripts/clean"
+    "clean": "scripts/clean",
+    "lint": "scripts/lint"
   },
   "authors": [
     "Dingchen <dingchenaobo@163.com> (https://github.com/dingchenaobo)"
@@ -32,6 +33,14 @@
     "sass-resources-loader": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.2"
+    "@babel/core": "^7.6.2",
+    "eslint": "^6.4.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^24.9.0",
+    "webpack": "^4.41.0",
+    "webpack-merge": "^4.2.2"
   }
 }
