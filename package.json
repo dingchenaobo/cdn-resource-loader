@@ -1,6 +1,6 @@
 {
   "name": "cdn-resource-loader",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "基于 sass-resources-loader，加载网络资源.",
   "main": "lib/loader.js",
   "scripts": {
