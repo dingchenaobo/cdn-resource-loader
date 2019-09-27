@@ -1,9 +1,9 @@
 const sassResourcesLoader = require('sass-resources-loader');
 const loaderUtils = require('loader-utils');
 
-const cleanResources = require('./cleanResources');
-const createResources = require('./createResources');
-const replaceConfigResources = require('./replaceConfigResources');
+const cleanResources = require('./utils/cleanResources');
+const createResources = require('./utils/createResources');
+const replaceConfigResources = require('./utils/replaceConfigResources');
 
 const urlRegExp = /^((ht|f)tps?):\/\/([\w\-]+(\.[\w\-]+)*\/)*[\w\-]+(\.[\w\-]+)*\/?(\?([\w\-\.,@?^=%&:\/~\+#]*)+)?/;
 const dirname = './dynamic-resource-styles';
