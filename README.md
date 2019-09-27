@@ -5,6 +5,18 @@
 ```bash
 npm i cdn-resource-loader -D
 ```
+参数配置
+```javascript
+{
+  loader: 'cdn-resource-loader',
+  options: {
+    resources: [
+      './theme-local.less', // 也可以填写本地资源
+      'https://raw.githubusercontent.com/dingchenaobo/cdn-resource-loader/master/example/theme-cdn.less' // 替换为线上资源地址
+    ]
+  }
+}
+```
 
 ## 开发--权限
 运行
