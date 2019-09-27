@@ -9,7 +9,18 @@
     "build": "scripts/build",
     "clean": "scripts/clean"
   },
-  "keywords": [],
+  "authors": [
+    "Dingchen <dingchenaobo@163.com> (https://github.com/dingchenaobo)"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dingchenaobo/cdn-resource-loader.git"
+  },
+  "keywords": [
+    "css",
+    "webpack",
+    "cdn"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {
