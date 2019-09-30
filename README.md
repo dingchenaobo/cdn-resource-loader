@@ -13,7 +13,8 @@ npm i cdn-resource-loader -D
     resources: [
       './theme-local.less', // 也可以填写本地资源
       'https://raw.githubusercontent.com/dingchenaobo/cdn-resource-loader/master/example/theme-cdn.less' // 替换为线上资源地址
-    ]
+    ],
+    dirname: path.resolve(__dirname, './dynamic-resource-styles')
   }
 }
 ```
