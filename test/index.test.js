@@ -1,30 +1,39 @@
+require('@babel/polyfill');
 const path = require('path');
-const webpack = require('webpack');
-const merge = require('webpack-merge');
+const fs = require('fs');
+const packagejson = require('../package.json');
 
-const cdnResourceLoader = require.resolve('../lib/loader.js');
+const createResources = require('../lib/utils/createResources');
+const cleanResources = require('../lib/utils/cleanResources');
+const dirnameScss = path.resolve(__dirname, './test-scss');
+const dirnameLess = path.resolve(__dirname, './test-less');
+const scssUrls = [
+  {uri: 'https://raw.githubusercontent.com/dingchenaobo/test/master/theme.scss'},
+];
+const lessUrls = [
+  {uri: 'https://raw.githubusercontent.com/dingchenaobo/test/master/theme2.less'},
+];
 
-function runWebpack(config, cb) {
-  const webpackConfig = merge({
-    mode: 'production',
-    output: {
-      path: path.join(__dirname, 'output'),
-      // libraryTarget: 'commonjs2',
-    },
-  }, config);
-  // https://webpack.docschina.org/api/node
-  webpack(webpackConfig, (webpackError, webpackStats) => {
-    const err = webpackError
-      || (stats.hasErrors() && stats.compilation.errors[0])
-      || (stats.hasWarnings() && stats.compilation.warnings[0]);
-    cb(err || null);
+describe(`description: ${packagejson.description} 测试:`, () => {
+  test('[function] cleanResources:', () => {
+    cleanResources(dirnameLess);
+    expect(fs.existsSync(dirnameLess)).toBe(true);
+    cleanResources(dirnameScss);
+    expect(fs.existsSync(dirnameScss)).toBe(true);
   });
-}
 
-describe('cdn-resource-loader(based on sass-resources-loader)', () => {
-  describe('runWebpack', () => {
-    runWebpack({
-      
-    })
+  test('[function] createResources:', () => {
+    createResources(scssUrls, dirnameScss, (error) => {
+      expect(
+        error &&
+        fs.readdirSync(dirnameScss).length === scssUrls.length
+      ).toBe(null);
+    });
+    createResources(lessUrls, dirnameLess, (error) => {
+      expect(
+        error &&
+        fs.readdirSync(dirnameLess).length === lessUrls.length
+      ).toBe(null);
+    });
   });
 });

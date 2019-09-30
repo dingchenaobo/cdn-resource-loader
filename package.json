@@ -8,7 +8,8 @@
     "dev": "scripts/dev",
     "build": "scripts/build",
     "clean": "scripts/clean",
-    "lint": "scripts/lint"
+    "lint": "scripts/lint",
+    "test": "jest"
   },
   "authors": [
     "Dingchen <dingchenaobo@163.com> (https://github.com/dingchenaobo)"
@@ -40,6 +41,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "jest": "^24.9.0",
+    "raw-loader": "^3.1.0",
     "webpack": "^4.41.0",
     "webpack-merge": "^4.2.2"
   }

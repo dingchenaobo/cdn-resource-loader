@@ -1,3 +1,5 @@
 .DS_Store
 node_modules
 dynamic-resource-styles
+test-scss
+test-less
