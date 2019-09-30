@@ -61,7 +61,8 @@ module.exports = {
             resources: [
               './theme-local.less',
               'https://raw.githubusercontent.com/dingchenaobo/cdn-resource-loader/master/example/theme-cdn.less'
-            ]
+            ],
+            // dirname: path.resolve(__dirname, './aaaaaa')
           }
         }
       ]

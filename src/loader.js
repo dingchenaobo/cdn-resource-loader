@@ -9,7 +9,6 @@ const replaceConfigResources = require('./utils/replaceConfigResources');
 
 // eslint-disable-next-line
 const urlRegExp = /^((ht|f)tps?):\/\/([\w\-]+(\.[\w\-]+)*\/)*[\w\-]+(\.[\w\-]+)*\/?(\?([\w\-\.,@?^=%&:\/~\+#]*)+)?/;
-const dirname = './dynamic-resource-styles';
 const { isArray } = Array;
 const globalResourcesUrls = [];
 
@@ -27,7 +26,9 @@ module.exports = function cdnResourceLoader(source) {
 
 module.exports.pitch = function cdnResourceLoader() {
   const callback = this.async();
-  let resourcesFromConfig = (loaderUtils.getOptions(this) || {}).resources;
+  const options = loaderUtils.getOptions(this) || {};
+  let resourcesFromConfig = options.resources;
+  let dirname = options.dirname || './dynamic-resource-styles';
   // networks urls
   const urlsFromresources = [];
 
